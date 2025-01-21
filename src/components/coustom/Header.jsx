@@ -71,7 +71,7 @@ const Header = () => {
               <a href="/create-trip">
                 <Button
                   variant="outline"
-                  className="rounded-full text-black border border-black"
+                  className="rounded-full text-black border border-black bg-white"
                 >
                   Create Trip
                 </Button>
@@ -79,7 +79,7 @@ const Header = () => {
               <a href="/my-trips">
                 <Button
                   variant="outline"
-                  className="rounded-full text-black border border-black"
+                  className="rounded-full text-black border border-black bg-white"
                 >
                   My Trips
                 </Button>
