@@ -25,10 +25,10 @@ const UserTripCard = ({ trip }) => {
     }
     return (
         <Link to={'/view-trip/' + trip.id}>
-            <div>
-                <img src={photoUrl} alt="" className="rounded-xl object-cover" />
+            <div className="border p-2 rounded-md border-orange-300 min-h-64 hover:shadow-lg">
+                <img src={photoUrl} alt="" className="rounded-xl object-cover h-28 sm:h-36 w-full" />
                 <div>
-                    <h2 className="font-bold text-lg">
+                    <h2 className="font-bold text-lg text-black">
                         {trip.userSelection.location.label}
                     </h2>
                     <h2 className="text-sm text-gray-500">

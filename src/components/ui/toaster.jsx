@@ -23,7 +23,7 @@ export function Toaster() {
               )}
             </div>
             {action}
-            <ToastClose />
+            <ToastClose className="bg-orange-200" />
           </Toast>)
         );
       })}

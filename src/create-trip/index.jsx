@@ -52,7 +52,14 @@ const CreateTrip = () => {
       return
     }
 
-    if (formData?.noOfDays > 5 && !formData?.budget || !formData?.location || !formData?.noOfDays || !formData?.traveler) {
+    if (!formData?.noOfDays || formData.noOfDays < 1 || formData.noOfDays > 5) {
+      toast({
+        title: "😕 Please enter a valid number of days (between 1 and 5)"
+      })
+      return;
+    }
+
+    if (!formData?.budget || !formData?.location || !formData?.traveler) {
       toast({
         title: "😕 Please fill all the details"
       })
@@ -147,7 +154,7 @@ const CreateTrip = () => {
 
         <div>
           <h2 className="text-xl my-3 font-medium">What is Your Budget?</h2>
-          <div className="grid grid-cols-3 gap-5 mt-5">
+          <div className="grid grid-cols-2 sm:grid-cols-3 gap-5 mt-5">
             {selectBudgetOptions.map((item, index) => (
               <div
                 key={index}
@@ -167,7 +174,7 @@ const CreateTrip = () => {
           <h2 className="text-xl my-3 font-medium">
             Who do you plan on travelling with on your next adventure?
           </h2>
-          <div className="grid grid-cols-3 gap-5 mt-5">
+          <div className="grid grid-cols-2 sm:grid-cols-3 gap-5 mt-5">
             {selectTravelesList.map((item, index) => (
               <div
                 key={index}
