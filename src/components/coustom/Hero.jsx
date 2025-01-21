@@ -15,7 +15,7 @@ const Hero = () => {
         tailored to your interests and budget.
       </p>
       <Link to={"/create-trip"}>
-        <Button>Get Started, It's Free</Button>
+        <Button className="bg-black text-white rounded-xl hover:bg-orange-200 hover:text-black">Get Started, It's Free</Button>
       </Link>
     </div>
   );
