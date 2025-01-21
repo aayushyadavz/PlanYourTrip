@@ -66,12 +66,12 @@ const Header = () => {
             </div>
             <div
               className={`${openMenu ? "flex" : "hidden"
-                } sm:flex flex-col sm:flex-row items-center sm:items-center gap-3 absolute sm:static top-16 right-3 bg-orange-200 sm:bg-white sm:bg-transparent shadow-lg sm:shadow-none p-4 sm:p-0 rounded-md sm:rounded-none`}
+                } sm:flex flex-col sm:flex-row items-center sm:items-center gap-3 absolute sm:static top-16 right-3 bg-orange-200 sm:bg-white sm:bg-transparent shadow-lg sm:shadow-none p-4 sm:p-0 rounded-xl sm:rounded-none`}
             >
               <a href="/create-trip">
                 <Button
                   variant="outline"
-                  className="rounded-full text-black border border-black bg-white"
+                  className="rounded-full text-black border border-black bg-white hover:bg-gray-300"
                 >
                   Create Trip
                 </Button>
@@ -79,7 +79,7 @@ const Header = () => {
               <a href="/my-trips">
                 <Button
                   variant="outline"
-                  className="rounded-full text-black border border-black bg-white"
+                  className="rounded-full text-black border border-black bg-white hover:bg-gray-300"
                 >
                   My Trips
                 </Button>
@@ -92,7 +92,7 @@ const Header = () => {
                     className="w-[35px] h-[35px] rounded-full cursor-pointer"
                   />
                 </PopoverTrigger>
-                <PopoverContent>
+                <PopoverContent className="bg-orange-200">
                   <h2
                     className="cursor-pointer"
                     onClick={() => {

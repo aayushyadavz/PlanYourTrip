@@ -5,7 +5,7 @@ function App() {
     <>
       <Hero />
     </>
-  );
+  )
 }
 
 export default App;
