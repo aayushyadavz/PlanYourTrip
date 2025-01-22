@@ -1,11 +1,10 @@
-import { useState } from "react";
 import { Button } from "../ui/button";
 import {
   Popover,
   PopoverContent,
   PopoverTrigger,
 } from "@/components/ui/popover";
-import { googleLogout, useGoogleLogin } from "@react-oauth/google";
+import { googleLogout } from "@react-oauth/google";
 import {
   Dialog,
   DialogContent,
@@ -14,39 +13,20 @@ import {
   DialogTitle,
 } from "@/components/ui/dialog";
 import { FcGoogle } from "react-icons/fc";
-import axios from "axios";
 import { GiHamburgerMenu } from "react-icons/gi";
 import { IoClose } from "react-icons/io5";
 import { IoMdLogOut } from "react-icons/io";
+import useHeader from "@/hooks/useHeader";
 
 const Header = () => {
-  const user = JSON.parse(localStorage.getItem("user"));
-  const [openDialog, setOpenDialog] = useState(false);
-  const [openMenu, setOpenMenu] = useState(false);
-
-  const login = useGoogleLogin({
-    onSuccess: (tokenResponse) => {
-      console.log(tokenResponse);
-      getUserProfile(tokenResponse);
-    },
-    onError: (error) => console.log(error),
-  });
-
-  const getUserProfile = (tokenInfo) => {
-    axios
-      .get(`https://www.googleapis.com/oauth2/v3/userinfo?access_token=${tokenInfo?.access_token}`, {
-        headers: {
-          Authorization: `Bearer ${tokenInfo?.access_token}`,
-          Accept: "Application/json",
-        },
-      })
-      .then((resp) => {
-        console.log(resp);
-        localStorage.setItem("user", JSON.stringify(resp.data));
-        setOpenDialog(false);
-        window.location.reload();
-      });
-  };
+  const {
+    user,
+    setOpenMenu,
+    openMenu,
+    openDialog,
+    setOpenDialog,
+    login
+  } = useHeader()
 
   return (
     <div className="p-3 flex items-center px-6 sm:px-7 justify-between shadow">

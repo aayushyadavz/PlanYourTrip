@@ -1,4 +1,3 @@
-import React from 'react'
 import PlacesCard from './PlacesCard'
 
 const PlacesToVisit = ({ trip }) => {

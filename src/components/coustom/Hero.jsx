@@ -17,6 +17,8 @@ const Hero = () => {
       <Link to={"/create-trip"}>
         <Button className="bg-black text-white rounded-xl hover:bg-orange-200 hover:text-black">Get Started, It's Free</Button>
       </Link>
+
+      <img src="/Hero_Image.png" alt="" className="mb-20 rounded-2xl border hidden sm:block shadow-2xl" />
     </div>
   );
 };

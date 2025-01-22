@@ -1,37 +1,8 @@
-import { db } from "@/services/firebaseConfig"
-import { collection, getDocs, query, where } from "firebase/firestore"
-import { useEffect, useState } from "react"
-import { useNavigate } from "react-router-dom"
+import useMyTrip from "@/hooks/useMyTrip"
 import UserTripCard from "./components/UserTripCard"
 
 const MyTrips = () => {
-    const navigate = useNavigate()
-    const [userTrip, setUserTrip] = useState([])
-
-    useEffect(() => {
-        getUserTrips()
-    }, [])
-
-    const getUserTrips = async () => {
-        const user = JSON.parse(localStorage.getItem('user'))
-
-        if (!user) {
-            navigate("/")
-            return;
-        }
-
-        const q = query(collection(db, "AITripData"), where("userEmail", "==", user?.email));
-
-        const querySnapshot = await getDocs(q);
-
-        const trips = []
-        querySnapshot.forEach((doc) => {
-            console.log(doc.data());
-            trips.push(doc.data())
-        });
-
-        setUserTrip(trips)
-    }
+    const { userTrip } = useMyTrip()
 
     return (
         <div className="sm:px-28 md:px-32 lg:px-56 xl:px-72 px-1 mt-5 sm:mt-10">
