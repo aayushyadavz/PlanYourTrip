@@ -1,8 +1,7 @@
+import { PHOTO_REF_URL } from "@/components/constants/options"
 import { getPlaceDetails } from "@/services/GlobalApi"
 import { useEffect, useState } from "react"
 import { Link } from "react-router-dom"
-
-const PHOTO_REF_URL = 'https://places.googleapis.com/v1/NAME/media?max_height_px=1000&max_width_px=1000&key=' + import.meta.env.VITE_GOOGLE_PLACE_API_KEY
 
 const UserTripCard = ({ trip }) => {
     const [photoUrl, setPhotoUrl] = useState()
@@ -32,7 +31,7 @@ const UserTripCard = ({ trip }) => {
                         {trip.userSelection.location.label}
                     </h2>
                     <h2 className="text-sm text-gray-500">
-                        {trip.userSelection.noOfDays} Days trip with {trip.userSelection.budget} buget
+                        {trip.userSelection.noOfDays} Days trip with {trip.userSelection.budget} budget
                     </h2>
                 </div>
             </div>

@@ -17,6 +17,7 @@ import { FcGoogle } from "react-icons/fc";
 import axios from "axios";
 import { GiHamburgerMenu } from "react-icons/gi";
 import { IoClose } from "react-icons/io5";
+import { IoMdLogOut } from "react-icons/io";
 
 const Header = () => {
   const user = JSON.parse(localStorage.getItem("user"));
@@ -73,7 +74,7 @@ const Header = () => {
                   variant="outline"
                   className="rounded-full text-black border border-black bg-white hover:bg-gray-300"
                 >
-                  Create Trip
+                  + Create Trip
                 </Button>
               </a>
               <a href="/my-trips">
@@ -92,9 +93,10 @@ const Header = () => {
                     className="w-[35px] h-[35px] rounded-full cursor-pointer"
                   />
                 </PopoverTrigger>
-                <PopoverContent className="bg-orange-200">
+                <PopoverContent className="bg-orange-200 flex items-center gap-2">
+                  <IoMdLogOut className="w-5 h-5" />
                   <h2
-                    className="cursor-pointer"
+                    className="cursor-pointer font-bold "
                     onClick={() => {
                       googleLogout();
                       localStorage.clear();
@@ -108,12 +110,12 @@ const Header = () => {
             </div>
           </div>
         ) : (
-          <Button onClick={() => setOpenDialog(true)}>Sign In</Button>
+          <Button className="bg-black text-white rounded-xl hover:bg-orange-200 hover:text-black" onClick={() => setOpenDialog(true)}>Sign In</Button>
         )}
       </div>
 
-      <Dialog open={openDialog}>
-        <DialogContent>
+      <Dialog open={openDialog} onOpenChange={setOpenDialog}>
+        <DialogContent className="bg-white">
           <DialogHeader>
             <DialogTitle></DialogTitle>
             <DialogDescription>
@@ -129,7 +131,7 @@ const Header = () => {
               </div>
               <Button
                 onClick={login}
-                className="w-full mt-5 flex items-center gap-2"
+                className="w-full mt-7 flex items-center gap-2 bg-black text-white rounded-xl hover:bg-orange-200 hover:text-black"
               >
                 <FcGoogle className="h-7 w-7" /> Sign In With Google
               </Button>
