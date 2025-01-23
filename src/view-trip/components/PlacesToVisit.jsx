@@ -9,7 +9,7 @@ const PlacesToVisit = ({ trip }) => {
                 <div>
                     {trip?.aiResponse?.itinerary.map((item, index) => (
                         <div key={index} className='mt-3'>
-                            <h2 className='font-medium text-lg mb-3'>Day {item.day} :</h2>
+                            <h2 className='font-bold text-lg mb-3'>Day {item.day} :</h2>
                             <div className='grid md:grid-cols-2 gap-3 sm:gap-5 border p-2'>
                                 {item?.locations.map((place, index) => (
                                     <div key={index}>
