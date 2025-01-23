@@ -30,7 +30,7 @@ const Header = () => {
 
   return (
     <div className="p-3 flex items-center px-6 sm:px-7 justify-between shadow">
-      <a href="/">
+      <a href="/" className="cursor-pointer">
         <div className="flex items-center gap-3">
           <img src="/logo.svg" alt="logo" className="w-9 sm:w-10" />
           <p className="font-bold text-xl">
