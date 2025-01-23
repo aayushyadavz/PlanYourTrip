@@ -1,27 +1,8 @@
-import { PHOTO_REF_URL } from '@/components/constants/options'
-import { getPlaceDetails } from '@/services/GlobalApi'
-import { useEffect, useState } from 'react'
+import useHotelCard from '@/hooks/useHotelCard'
 import { Link } from 'react-router-dom'
 
 const HotelCard = ({ hotel }) => {
-    const [photoUrl, setPhotoUrl] = useState()
-
-    useEffect(() => {
-        hotel && getPlacePhoto()
-    }, [hotel])
-
-    const getPlacePhoto = async () => {
-        const data = {
-            textQuery: hotel?.name
-        }
-        const result = await getPlaceDetails(data).then(res => {
-            console.log(res.data.places[0].photos[3].name)
-
-            const photoUrl = PHOTO_REF_URL.replace('NAME', res.data.places[0].photos[3].name)
-            console.log(photoUrl);
-            setPhotoUrl(photoUrl)
-        })
-    }
+    const { photoUrl } = useHotelCard(hotel)
 
     return (
         <Link to={'https://www.google.com/maps/search/?api=1&query=' + hotel.name + ',' + hotel.address} target="_blank">

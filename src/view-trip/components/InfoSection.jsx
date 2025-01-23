@@ -1,26 +1,8 @@
-import { PHOTO_REF_URL } from "@/components/constants/options";
-import { getPlaceDetails } from "@/services/GlobalApi";
-import { useEffect, useState } from "react";
+import useInfoSection from "@/hooks/useInfoSection"
 
 const InfoSection = ({ trip }) => {
-    const [photoUrl, setPhotoUrl] = useState()
+    const { photoUrl } = useInfoSection(trip)
 
-    useEffect(() => {
-        trip && getPlacePhoto()
-    }, [trip])
-
-    const getPlacePhoto = async () => {
-        const data = {
-            textQuery: trip?.userSelection?.location?.label
-        }
-        const result = await getPlaceDetails(data).then(res => {
-            console.log(res.data.places[0].photos[3].name)
-
-            const photoUrl = PHOTO_REF_URL.replace('NAME', res.data.places[0].photos[3].name)
-            console.log(photoUrl);
-            setPhotoUrl(photoUrl)
-        })
-    }
     return (
         <div className="mt-5">
             <img src={photoUrl} alt="Plane" className="h-[250px] sm:h-[300px] w-full object-cover rounded-xl shadow-xl" />
