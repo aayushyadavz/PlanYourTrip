@@ -30,12 +30,14 @@ const Header = () => {
 
   return (
     <div className="p-3 flex items-center px-6 sm:px-7 justify-between shadow">
-      <div className="flex items-center gap-3">
-        <img src="/logo.svg" alt="logo" className="w-9 sm:w-10" />
-        <p className="font-bold text-xl">
-          Plan<span className="text-[#f56551]">Your</span>Trip
-        </p>
-      </div>
+      <a href="/">
+        <div className="flex items-center gap-3">
+          <img src="/logo.svg" alt="logo" className="w-9 sm:w-10" />
+          <p className="font-bold text-xl">
+            Plan<span className="text-[#f56551]">Your</span>Trip
+          </p>
+        </div>
+      </a>
       <div>
         {user ? (
           <div className="flex items-center gap-3 sm:gap-5">

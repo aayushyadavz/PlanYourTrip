@@ -34,15 +34,15 @@ const CreateTrip = () => {
         Tell us your{" "}
         <span className="text-[#f56551]">travel preferences</span>
       </h2>
-      <p className="mt-3 text-gray-500 text-xl">
+      <p className="mt-3 text-gray-500 text-xl leading-tight">
         Just provide some basic information, and our trip planner will generate
         a cutomized itinerary based on your preferences.
       </p>
 
       <div className="mt-20 flex flex-col gap-9">
         <div>
-          <h2 className="text-xl my-3 font-medium">
-            What is your destination of choice?
+          <h2 className="text-xl my-3 font-medium leading-tight">
+            1. What is your destination of choice?
           </h2>
           <GooglePlacesAutocomplete
             apiKey={import.meta.env.VITE_GOOGLE_PLACE_API_KEY}
@@ -57,8 +57,8 @@ const CreateTrip = () => {
         </div>
 
         <div>
-          <h2 className="text-xl my-3 font-medium">
-            How many days are you planning your trip?
+          <h2 className="text-xl my-3 font-medium leading-tight">
+            2. How many days are you planning your trip?
           </h2>
           <Input
             placeholder={"Ex.3"}
@@ -68,7 +68,7 @@ const CreateTrip = () => {
         </div>
 
         <div>
-          <h2 className="text-xl my-3 font-medium">What is Your Budget?</h2>
+          <h2 className="text-xl my-3 font-medium leading-tight">3. What is Your Budget?</h2>
           <div className="grid grid-cols-2 sm:grid-cols-3 gap-5 mt-5">
             {selectBudgetOptions.map((item, index) => (
               <div
@@ -86,8 +86,8 @@ const CreateTrip = () => {
         </div>
 
         <div>
-          <h2 className="text-xl my-3 font-medium">
-            Who do you plan on travelling with on your next adventure?
+          <h2 className="text-xl my-3 font-medium leading-tight">
+            4. Who do you plan on travelling with on your next adventure?
           </h2>
           <div className="grid grid-cols-2 sm:grid-cols-3 gap-5 mt-5">
             {selectTravelesList.map((item, index) => (
@@ -113,7 +113,7 @@ const CreateTrip = () => {
       </div>
 
       <Dialog open={openDialog}>
-        <DialogContent>
+        <DialogContent className="bg-white">
           <DialogHeader>
             <DialogTitle></DialogTitle>
             <DialogDescription>
@@ -127,7 +127,7 @@ const CreateTrip = () => {
                 <h2 className="font-bold text-lg mt-7">Sign In With Google</h2>
                 <p>Sign in to the App with Google Authentication securely</p>
               </div>
-              <Button onClick={login} className="w-full mt-5 flex items-center gap-2">
+              <Button onClick={login} className="w-full mt-7  flex items-center gap-2 bg-black text-white rounded-xl hover:bg-orange-200 hover:text-black">
                 <FcGoogle className="h-7 w-7" /> Sign In With Google
               </Button>
             </DialogDescription>
