@@ -5,7 +5,6 @@ import { collection, getDocs, query, where } from "firebase/firestore"
 import { useEffect, useState } from "react"
 import { useNavigate } from "react-router-dom"
 import { deleteDoc, doc } from "firebase/firestore";
-import { db } from "@/services/firebaseConfig";
 
 const useMyTrip = (trip) => {
     const navigate = useNavigate()
