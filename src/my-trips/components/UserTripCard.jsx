@@ -2,8 +2,11 @@ import { Link } from "react-router-dom"
 import { RiDeleteBin6Fill } from "react-icons/ri";
 import { deleteDoc, doc } from "firebase/firestore";
 import { db } from "@/services/firebaseConfig";
+import useMyTrip from "@/hooks/useMyTrip";
 
 const UserTripCard = ({ trip }) => {
+    const { photoUrl } = useMyTrip(trip)
+
     const handleDelete = async (e) => {
         e.preventDefault()
 
