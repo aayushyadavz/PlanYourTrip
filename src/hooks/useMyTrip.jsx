@@ -56,8 +56,7 @@ const useMyTrip = (trip) => {
 
     return {
         userTrip,
-        photoUrl,
-        handleDelete
+        photoUrl
     }
 }
 
