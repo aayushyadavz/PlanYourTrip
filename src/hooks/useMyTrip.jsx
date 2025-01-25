@@ -4,7 +4,6 @@ import { getPlaceDetails } from "@/services/GlobalApi"
 import { collection, getDocs, query, where } from "firebase/firestore"
 import { useEffect, useState } from "react"
 import { useNavigate } from "react-router-dom"
-import { deleteDoc, doc } from "firebase/firestore";
 
 const useMyTrip = (trip) => {
     const navigate = useNavigate()
@@ -53,18 +52,6 @@ const useMyTrip = (trip) => {
             console.log(photoUrl);
             setPhotoUrl(photoUrl)
         })
-    }
-
-    const handleDelete = async (e) => {
-        e.preventDefault()
-
-        try {
-            const tripRef = doc(db, "AITripData", trip.id);
-            await deleteDoc(tripRef);
-            window.location.reload()
-        } catch (error) {
-            console.error("Error deleting trip:", error);
-        }
     }
 
     return {

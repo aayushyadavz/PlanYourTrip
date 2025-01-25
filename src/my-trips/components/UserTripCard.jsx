@@ -1,9 +1,20 @@
-import useMyTrip from "@/hooks/useMyTrip"
 import { Link } from "react-router-dom"
 import { RiDeleteBin6Fill } from "react-icons/ri";
+import { deleteDoc, doc } from "firebase/firestore";
+import { db } from "@/services/firebaseConfig";
 
 const UserTripCard = ({ trip }) => {
-    const { photoUrl, handleDelete } = useMyTrip(trip)
+    const handleDelete = async (e) => {
+        e.preventDefault()
+
+        try {
+            const tripRef = doc(db, "AITripData", trip.id);
+            await deleteDoc(tripRef);
+            window.location.reload()
+        } catch (error) {
+            console.error("Error deleting trip:", error);
+        }
+    }
 
     return (
         <Link to={'/view-trip/' + trip.id}>
